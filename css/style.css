@@ -56,17 +56,40 @@ body{
   height: 45px;
 }
 
-.list-composer__button{
+.button{
   width: 140px;
   padding: 10px;
   border-radius: 5px;
   text-align: center;
-  margin: 15px auto 0 auto;
+    
+}
+
+.list-composer__button{
+  background-color: #ba7af8;
+  color: white;
+  margin: 15px auto 0 auto; 
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #ba7af8;
-  color: white
+}
+
+.list-area__button-check{
+  padding: 5px;
+  background-color: #019108c5;
+  color: white;
+}
+
+.list-area__button-del{
+  padding: 5px;
+  background-color: #ff0000a9;
+  color: white;
+}
+
+
+.list-area__btn{
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
 }
 
 .list-composer__area{
@@ -109,6 +132,9 @@ span{
   align-items: center;
   font-size: 14px;
   width: 100%;
+
+}
+#span-content{
   border-bottom: solid 1px lightgrey;
 }
 
