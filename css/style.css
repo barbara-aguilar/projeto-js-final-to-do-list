@@ -126,6 +126,17 @@ a{
   padding: 5px;
 }
 
+.checked{
+ 
+
+}
+
+.uncheck{
+  
+  
+}
+
+
 span{
   display: flex;
   flex-direction: row;
