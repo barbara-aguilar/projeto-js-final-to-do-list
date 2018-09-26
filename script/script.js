@@ -10,15 +10,16 @@ const addButton = document.querySelector(".list-composer__button");
     if(input.value === undefined || input.value === null || input.value === "" || input.value === " "){
         return false;
     }
+    
 
 //criando o local onde as tarefas serão inseridas
     const textBox = document.querySelector(".list-area__box");
-    
+
 //tag span criada para colocar as tarefas    
     const textArea = document.createElement("span");
 
 //criando através do inner html o conteúdo das tarefas dentro do text area
-    textArea.innerHTML += `<span id="span-content"><p class="list-area__text">${input.value}</p>
+    textArea.innerHTML += `<span class="span-content"><p class="list-area__text">${input.value}</p>
                         <a href="#" onclick="check(this)"><i class="far fa-check-circle"></i></a>
                         <a href="#" onclick="dell(this)"><i class="far fa-times-circle"></i></a>
                         </span>`
@@ -32,19 +33,17 @@ const addButton = document.querySelector(".list-composer__button");
 //resetando o texto do input após o click    
     input.value = null;
 
-//função para deletar individualmente a lista de tarefas
+//função para deletar a lista d etarefas completamente
     const buttonDel = document.querySelector(".list-area__button-del");
-        buttonDel.addEventListener("click", function(event){
-        event.preventDefault();
-        const contentArea = document.getElementById("span-content");
-        contentArea.remove();
-
-    });
+    buttonDel.addEventListener("click", function(event){
+    event.preventDefault();
+    textArea.remove();
+});
 
 });
 
-//função para deletar a lista d etarefas completamente
 
+//função para deletar individualmente a lista de tarefas
 function dell(ex){
     let d = ex.parentNode;
     d.remove();
@@ -62,6 +61,27 @@ function check(checker){
         checklist.style.textDecoration = "none"
         checklist.style.color = "black"
     }
+}
+
+//funçao para check todas opções da lista
+const buttonCheck = document.querySelector(".list-area__button-check");
+let contador = 0;
+
+  
+function checkAll(){
+    let checkboxes = document.querySelectorAll(".span-content");
+    for (let i = 0; i < checkboxes.length; i++){
+        if (contador % 2 === 0){
+            checkboxes[i].style.textDecoration = "line-through";
+            checkboxes[i].style.color = "#a8a8a8";
+            buttonCheck.innerHTML = "UNCHECK ALL";
+        } else{
+            checkboxes[i].style.textDecoration = "none";
+            checkboxes[i].style.color = "black";
+            buttonCheck.innerHTML = "CHECK ALL";
+        }
+    }
+    contador++
 }
 
 

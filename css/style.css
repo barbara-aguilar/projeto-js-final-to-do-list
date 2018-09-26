@@ -126,16 +126,6 @@ a{
   padding: 5px;
 }
 
-.checked{
- 
-
-}
-
-.uncheck{
-  
-  
-}
-
 
 span{
   display: flex;
@@ -145,7 +135,7 @@ span{
   width: 100%;
 
 }
-#span-content{
+.span-content{
   border-bottom: solid 1px lightgrey;
 }
 
