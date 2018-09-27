@@ -128,15 +128,23 @@ a{
 
 
 span{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  display: block;
+  /* flex-direction: row;
+  align-items: center; */
   font-size: 14px;
   width: 100%;
 
 }
 .span-content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   border-bottom: solid 1px lightgrey;
+}
+
+.dragover{
+  border-bottom: 3px solid red;
+  
 }
 
 /*** MEDIA QUERIES ***/
