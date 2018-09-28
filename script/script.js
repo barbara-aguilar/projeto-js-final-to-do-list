@@ -3,7 +3,7 @@
 const input = document.getElementById("listComposerInput");
 const addButton = document.querySelector(".list-composer__button");
 
-    addButton.addEventListener("click", function(event){
+addButton.addEventListener("click", function(event){
     event.preventDefault();
     
 //validando para não aceitar input vazio ou nulo
@@ -34,17 +34,23 @@ const addButton = document.querySelector(".list-composer__button");
 
 //resetando o texto do input após o click    
     input.value = null;
+});
 
 //função para deletar a lista d etarefas completamente
     const buttonDel = document.querySelector(".list-area__button-del");
     buttonDel.addEventListener("click", function(event){
-    event.preventDefault();
-    textArea.remove();
-});
-
-
-});
-
+        event.preventDefault()
+        
+        const spans = document.querySelectorAll(".span-content")
+        spans.forEach(function (item) {
+            item.remove()
+        });
+    });
+    
+// for (const span of spans) {
+//     span.remove()
+// }
+    
 
 //função para deletar individualmente a lista de tarefas
 function dell(ex){
@@ -70,7 +76,6 @@ function check(checker){
 const buttonCheck = document.querySelector(".list-area__button-check");
 let contador = 0;
 
-  
 function checkAll(){
     let checkboxes = document.querySelectorAll(".span-content");
     for (let i = 0; i < checkboxes.length; i++){
@@ -87,6 +92,8 @@ function checkAll(){
     contador++
 }
 
+//função para construir o drag and drop
+
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -99,7 +106,7 @@ function drop(ev) {
     ev.preventDefault();
     let data = ev.dataTransfer.getData("text");
     ev.target.parentNode.insertAdjacentElement("afterEnd", document.getElementById(data));
-
+    ev.target.parentNode.classList.remove("dragover")
 }
 
 function dragStart(ev) {
